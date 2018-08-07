@@ -43,6 +43,7 @@ else
   jq '.useInstanceMetadata=true' |\
   jq '.securityGroupName=''"'${az_vm_nsg}'"''' |\
   jq '.vnetName=''"'${az_vnet_name}'"''' > $cloud_config_temp
+  chmod 644 $cloud_config_temp
   # move the temp to the azure cloud config path
   mv $cloud_config_temp $AZURE_CLOUD_CONFIG_PATH
 fi
